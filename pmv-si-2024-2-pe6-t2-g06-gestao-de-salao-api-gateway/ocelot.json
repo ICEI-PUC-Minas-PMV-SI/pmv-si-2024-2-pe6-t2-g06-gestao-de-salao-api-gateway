@@ -1,0 +1,167 @@
+{
+  // funciona como um wrapper, para centralizer a chamada de todos os servicos dentro de uma API (tipo Apigee do google cloud)
+  // no fim, na app do react, nos chamamos esse gateway ao inves de chamar cada um dos servicos separadamente
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5001"
+  },
+  "Routes": [
+    //substituir essa parte de authenticacao para redirecionar a rota para a API do Everton
+    // API de usuario (Everton) abaixo:
+    {
+      "UpstreamPathTemplate": "/gateway/Usuarios/authentication",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Usuarios/authentication",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+
+    // API de servicos (Roberto) abaixo:
+
+
+
+
+
+    // API de agendamentos (Sara Vidal) abaixo:
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/agendamentos",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/agendamentos",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos/{Id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/agendamentos/{Id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos/{Id}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/agendamentos/{Id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos/{Id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "DownstreamPathTemplate": "/api/agendamentos/{Id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos/usuario/{Id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/agendamentos/usuario/{Id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos/profissional/{Id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/agendamentos/profissional/{Id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos/{Id}/status",
+      "UpstreamHttpMethod": [ "PATCH" ],
+      "DownstreamPathTemplate": "/api/agendamentos/{Id}/status",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos/{Id}/cancelar",
+      "UpstreamHttpMethod": [ "PATCH" ],
+      "DownstreamPathTemplate": "/api/agendamentos/{Id}/cancelar",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos/by-date/{data}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/agendamentos/by-date/{data}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos/between-dates",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/agendamentos/between-dates",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    }
+
+    // API de pagamento (Lucas e Sarah) abaixo:
+
+    // API de mensagens (Patrick) abaixo:
+  ]
+}

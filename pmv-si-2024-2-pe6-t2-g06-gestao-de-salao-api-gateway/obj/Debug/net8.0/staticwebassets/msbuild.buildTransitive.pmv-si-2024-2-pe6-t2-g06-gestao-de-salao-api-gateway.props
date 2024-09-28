@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\pmv-si-2024-2-pe6-t2-g06-gestao-de-salao-api-gateway.props" />
+</Project>

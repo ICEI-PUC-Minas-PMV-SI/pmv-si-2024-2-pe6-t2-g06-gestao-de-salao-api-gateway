@@ -1,0 +1,45 @@
+{
+  // funciona como um wrapper, para centralizer a chamada de todos os servicos dentro de uma API (tipo Apigee do google cloud)
+  // no fim, na app do react, nos chamamos esse gateway ao inves de chamar cada um dos servicos separadamente
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5001"
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/agendamentos",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/agendamentos",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/agendamentos",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Usuarios/authentication",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Usuarios/authentication",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    }
+  ]
+}
