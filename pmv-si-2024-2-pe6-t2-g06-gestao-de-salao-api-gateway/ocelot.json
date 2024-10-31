@@ -17,8 +17,27 @@
           "Host": "localhost",
           "Port": 5000
         }
-      ]
+      ],
+      "AddHeadersToRequest": {
+        "Content-Type": "application/json"
+      }
     },
+    {
+      "UpstreamPathTemplate": "/gateway/Usuarios",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/Usuarios",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ],
+      "AddHeadersToRequest": {
+        "Content-Type": "application/json"
+      }
+    },
+
 
     // API de servicos (Roberto) abaixo:
 
@@ -97,7 +116,10 @@
           "Host": "localhost",
           "Port": 5000
         }
-      ]
+      ],
+      "AddHeadersToRequest": {
+        "Authorization": "{Authorization}"
+      }
     },
     {
       "UpstreamPathTemplate": "/gateway/agendamentos/profissional/{Id}",
@@ -151,6 +173,30 @@
       "UpstreamPathTemplate": "/gateway/agendamentos/between-dates",
       "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/api/agendamentos/between-dates",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/saloes",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/saloes",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/saloes/{cnpj}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/saloes/{cnpj}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
